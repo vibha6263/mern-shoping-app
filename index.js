@@ -1,25 +1,22 @@
-// require('./config/config')
-// require('./models/db') 
-// const express = require('express')
-// const app = express()
-// app.use(express.json())
-// app.get('/Products',(req,res)=>{
-// console.log('vib');
-// })
+ require('./config/config')
+require('./models/db') 
+ const express = require('express')
+ const routes= require('./routes/index.router');
+ const app = express();
+ const products = require("./assets/products.json");
+ app.use(express.json())
+ app.use('/api',routes);
 
-// app.listen(process.env.PORT)
+ app.listen(process.env.PORT)
 
 
-const express = require("express");
-const products = require("./assets/products.json");
-const app = express();
+// const express = require("express");
 
-app.get("/", (req, res) => {
-	res.send("Hello World");
-});
 
-app.get("/products", (req, res) => {
-	res.send(products);
-});
+//app.get("/", (req, res) => {
+	//res.send("Hello World");
+//});
 
-app.listen(3000);
+//app.get("/products", (req, res) => {
+//	res.send(products);
+//});
